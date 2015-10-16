@@ -25,7 +25,9 @@ top_srcdir		?= ../../../..
 include $(top_srcdir)/include/mk/env_pre.mk
 
 CPPFLAGS		+= -D_LINUX
+ifneq ($(BIONIC), 1)
 LDLIBS			+= -lpthread
+endif
 
 INSTALL_TARGETS		:= data run_sched_cliserv.sh
 

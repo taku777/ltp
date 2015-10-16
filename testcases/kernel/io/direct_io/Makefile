@@ -22,7 +22,9 @@ include $(top_srcdir)/include/mk/testcases.mk
 
 CFLAGS				+= -DSHARED_OFILE -D_GNU_SOURCE
 
+ifneq ($(BIONIC), 1)
 LDLIBS				+= -lpthread
+endif
 
 FILTER_OUT_MAKE_TARGETS		:= diotest_routines
 

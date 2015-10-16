@@ -25,7 +25,9 @@ top_srcdir		?= ../../../..
 include $(top_srcdir)/include/mk/testcases.mk
 
 CPPFLAGS		+= -D_LINUX_
+ifneq ($(BIONIC), 1)
 LDLIBS			+= -lpthread
+endif
 
 INSTALL_TARGETS		:= run_semaphore_test_01.sh
 

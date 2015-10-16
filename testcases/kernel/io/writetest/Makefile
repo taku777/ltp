@@ -22,6 +22,8 @@ include $(top_srcdir)/include/mk/testcases.mk
 
 CFLAGS			+= `getconf LFS_CFLAGS` -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE
 
+ifneq ($(BIONIC), 1)
 LDLIBS			+= -lpthread
+endif
 
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

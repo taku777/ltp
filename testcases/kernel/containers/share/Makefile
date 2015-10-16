@@ -17,6 +17,10 @@ top_srcdir              ?= ../../../..
 include $(top_srcdir)/include/mk/testcases.mk
 include $(abs_srcdir)/../Makefile.inc
 
+ifneq ($(BIONIC), 1)
 LDLIBS                  := -lltp
+else
+LDLIBS                  += -lltp
+endif
 
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

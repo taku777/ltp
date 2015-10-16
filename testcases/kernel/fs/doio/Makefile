@@ -25,7 +25,9 @@ top_srcdir		?= ../../../..
 include $(top_srcdir)/include/mk/testcases.mk
 
 CFLAGS			+= -D_LARGEFILE64_SOURCE -Wall
+ifneq ($(BIONIC), 1)
 LDLIBS			+= -lrt -lpthread
+endif
 
 INSTALL_TARGETS		:= rwtest
 

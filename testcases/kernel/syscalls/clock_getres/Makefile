@@ -22,6 +22,8 @@ include $(top_srcdir)/include/mk/testcases.mk
 
 CPPFLAGS		+= -I$(abs_srcdir)/../utils
 
+ifneq ($(BIONIC),1)
 LDLIBS			+= -lpthread -lrt
+endif
 
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

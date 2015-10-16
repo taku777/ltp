@@ -18,7 +18,9 @@
 
 top_srcdir		?= ../../../..
 
+ifneq ($(BIONIC), 1)
 poll02: LDLIBS+=-lrt
+endif
 
 include $(top_srcdir)/include/mk/testcases.mk
 

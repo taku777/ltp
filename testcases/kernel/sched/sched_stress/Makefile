@@ -26,7 +26,9 @@ include $(top_srcdir)/include/mk/testcases.mk
 
 INSTALL_TARGETS		:= sched_stress.sh
 
+ifneq ($(BIONIC), 1)
 LDLIBS			+= -lpthread
+endif
 
 MAKE_TARGETS		:= $(filter-out sched,$(patsubst $(abs_srcdir)/%.c,%,$(wildcard $(abs_srcdir)/*.c)))
 

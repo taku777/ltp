@@ -28,7 +28,11 @@ CPPFLAGS	+= -I$(abs_srcdir)/../include -I$(abs_srcdir)/../testlib -DLTP
 
 LDFLAGS		+= $(addprefix -L$(abs_builddir)/../,lib testlib)
 
+ifneq ($(BIONIC),1)
 LDLIBS		+= -lsctputil -lsctp -lpthread
+else
+LDLIBS		+= -lsctputil -lsctp
+endif
 
 V4_TARGETS	:= $(patsubst $(abs_srcdir)/%.c,%,$(wildcard $(abs_srcdir)/*.c))
 

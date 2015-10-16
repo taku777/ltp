@@ -20,6 +20,8 @@ top_srcdir		?= ../../../..
 
 include $(top_srcdir)/include/mk/env_pre.mk
 
+ifneq ($(BIONIC), 1)
 LDLIBS			+= -lpthread
+endif
 
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

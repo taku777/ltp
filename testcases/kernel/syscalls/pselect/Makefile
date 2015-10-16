@@ -21,7 +21,9 @@ top_srcdir		?= ../../../..
 include $(top_srcdir)/include/mk/testcases.mk
 include $(abs_srcdir)/../utils/newer_64.mk
 
+ifneq ($(BIONIC), 1)
 LDLIBS			+= -lpthread -lrt
+endif
 
 %_64: CPPFLAGS += -D_FILE_OFFSET_BITS=64
 

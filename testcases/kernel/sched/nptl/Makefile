@@ -27,6 +27,8 @@ ifeq ($(HAS_NPTL),yes)
 CPPFLAGS		+= -DUSING_NPTL
 endif
 
+ifneq ($(BIONIC), 1)
 LDLIBS			+= -lpthread
+endif
 
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

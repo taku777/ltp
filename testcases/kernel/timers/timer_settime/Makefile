@@ -24,6 +24,8 @@ CFLAGS			+= -D_GNU_SOURCE
 
 CPPFLAGS		+= -I$(abs_srcdir)/../include
 
+ifneq ($(BIONIC),1)
 LDLIBS			+= -lpthread -lrt
+endif
 
 include $(top_srcdir)/include/mk/generic_leaf_target.mk
