@@ -25,7 +25,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <termio.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <sys/stat.h>
 #include <sys/poll.h>
 #include <sys/types.h>

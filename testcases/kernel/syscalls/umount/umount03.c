@@ -29,7 +29,11 @@
 #include <sys/mount.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <sys/wait.h>
 #include <pwd.h>
 

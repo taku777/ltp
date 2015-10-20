@@ -41,7 +41,11 @@
  * of who executed it (i.e. joe-user or root)
  */
 #include <sys/types.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <sys/stat.h>
 #include <errno.h>
 #include <string.h>

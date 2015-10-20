@@ -35,7 +35,11 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <memory.h>
 #include <errno.h>
 #include "test.h"

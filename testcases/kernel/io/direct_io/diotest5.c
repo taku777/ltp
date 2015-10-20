@@ -51,7 +51,11 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/file.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <sys/syscall.h>
 #include <sys/uio.h>
 #include <errno.h>

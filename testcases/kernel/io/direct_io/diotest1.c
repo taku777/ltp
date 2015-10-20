@@ -43,7 +43,11 @@
 #include <unistd.h>
 #include <signal.h>
 #include <string.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <errno.h>
 
 #include "diotest_routines.h"

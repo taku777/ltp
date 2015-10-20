@@ -29,7 +29,11 @@
 #include <unistd.h>
 #include <errno.h>
 #include <signal.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <sys/wait.h>
 #include <sys/poll.h>
 

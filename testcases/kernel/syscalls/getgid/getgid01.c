@@ -35,7 +35,11 @@
  *    CO-PILOT		: Dave Fenner
  */
 #include <sys/types.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <errno.h>
 #include <signal.h>
 #include <string.h>

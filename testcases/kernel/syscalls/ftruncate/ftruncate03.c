@@ -48,7 +48,11 @@
 #include <inttypes.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 
 #include "test.h"
 

@@ -44,7 +44,11 @@
 #define _GNU_SOURCE
 #endif
 #include <sys/types.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <sys/stat.h>
 #include <errno.h>
 #include <signal.h>

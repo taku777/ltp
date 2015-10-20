@@ -47,7 +47,11 @@
 #include <sys/param.h>
 #include <sys/wait.h>
 #include <sys/file.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <sys/stat.h>
 #include <sys/uio.h>
 #include <errno.h>

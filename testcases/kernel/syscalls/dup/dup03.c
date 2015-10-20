@@ -106,7 +106,11 @@
 #define _GNU_SOURCE
 #endif
 #include <sys/types.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <errno.h>
 #include <string.h>
 #include <signal.h>

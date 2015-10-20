@@ -29,7 +29,11 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/uio.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <memory.h>
 #include <errno.h>
 

@@ -59,7 +59,11 @@
  *	None.
  */
 #include <sys/types.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <sys/stat.h>
 #include <unistd.h>
 #include <errno.h>

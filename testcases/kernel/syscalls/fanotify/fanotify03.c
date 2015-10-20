@@ -31,7 +31,11 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <sys/wait.h>
 #include <errno.h>
 #include <string.h>

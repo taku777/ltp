@@ -29,7 +29,11 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <errno.h>
+#ifndef BIONIC
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <pwd.h>
 #include "test.h"
 #include "safe_macros.h"
