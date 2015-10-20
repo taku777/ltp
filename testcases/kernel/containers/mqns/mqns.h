@@ -2,7 +2,12 @@
 #define __MQNS_H
 
 #include <sys/mount.h>
+#ifndef BIONIC
 #include <mqueue.h>
+#else
+#include <linux/mqueue.h>
+typedef __kernel_mqd_t mqd_t;
+#endif
 #include "test.h"
 #include "linux_syscall_numbers.h"
 #include "libclone.h"

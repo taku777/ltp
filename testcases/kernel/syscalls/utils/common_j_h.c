@@ -35,7 +35,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#ifndef BIONIC
 #include <mqueue.h>
+#else
+#include <linux/mqueue.h>
+#endif
 #include "include_j_h.h"
 #include "test.h"
 
