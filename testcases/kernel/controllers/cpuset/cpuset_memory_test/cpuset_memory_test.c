@@ -381,7 +381,14 @@ int main(int argc, char *argv[])
 
 	if (opt_thread) {
 		void *retv;
+#ifndef BIONIC
 		pthread_cancel(thread2);
+#else
+		if ((pthread_kill(thread2, SIGUSR1)) != 0)
+		{
+			printf("Error cancelling thread %d\n", thread2);
+		}
+#endif
 		pthread_join(thread2, &retv);
 	}
 
