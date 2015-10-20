@@ -48,6 +48,9 @@
 
 char *TCID = "pidns12";
 int TST_TOTAL = 1;
+#ifdef BIONIC
+#undef errno
+#endif
 int errno;
 int pipefd[2];
 

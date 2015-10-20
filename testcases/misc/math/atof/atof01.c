@@ -57,6 +57,9 @@ char *TCID = "atof01";		/* Test program identifier */
 
 int local_flag = PASSED;
 int block_number;
+#ifdef BIONIC
+#undef errno
+#endif
 int errno;
 FILE *temp;
 int TST_TOTAL = 1;

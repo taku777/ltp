@@ -47,6 +47,9 @@
 
 char *TCID = "pidns10";
 int TST_TOTAL = 1;
+#ifdef BIONIC
+#undef errno
+#endif
 int errno;
 
 int child_fn(void *);
