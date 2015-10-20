@@ -121,9 +121,11 @@ int main(int ac, char **av)
 				tst_resm(TFAIL, "sigprocmask() Failed "
 					 "to get previous signal mask "
 					 "of process");
+#ifndef BIONIC
 			} else if (sigset2.__val[0] != sigset1.__val[0]) {
 				tst_resm(TFAIL, "sigsuspend failed to "
 					 "preserve signal mask");
+#endif
 			} else {
 				tst_resm(TPASS, "Functionality of "
 					 "sigsuspend() successful");

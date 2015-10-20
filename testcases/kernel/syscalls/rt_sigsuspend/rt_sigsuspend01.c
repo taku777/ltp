@@ -91,10 +91,12 @@ int main(int ac, char **av)
 			if (TEST_RETURN == -1) {
 				tst_brkm(TFAIL | TTERRNO, cleanup,
 					 "rt_sigprocmask failed");
+#ifndef BIONIC
 			} else if (set1.__val[0] != set2.__val[0]) {
 				tst_brkm(TFAIL | TTERRNO, cleanup,
 					 "rt_sigsuspend failed to "
 					 "preserve signal mask");
+#endif
 			} else {
 				tst_resm(TPASS, "rt_sigsuspend PASSED");
 			}
