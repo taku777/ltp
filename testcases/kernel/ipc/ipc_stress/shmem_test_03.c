@@ -81,6 +81,8 @@
 #include <sys/wait.h>
 #include "lapi/semun.h"
 
+#include "bionic.h"
+
 /* Defines
  *
  * USAGE: usage statement

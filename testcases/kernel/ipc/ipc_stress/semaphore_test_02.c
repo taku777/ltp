@@ -79,6 +79,8 @@
 #include <string.h>
 #include "lapi/semun.h"
 
+#include "bionic.h"
+
 /*
  * Defines
  *

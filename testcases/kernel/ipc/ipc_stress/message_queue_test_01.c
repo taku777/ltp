@@ -72,6 +72,9 @@
 #include <sys/types.h>
 #include <string.h>
 #include <stdlib.h>
+
+#include "bionic.h"
+
 /*
  * Defines
  *

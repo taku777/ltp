@@ -75,6 +75,8 @@
 #include <sys/shm.h>		/* required by shmat shmget etc               */
 #include <string.h>		/* required by strncmp                        */
 
+#include "bionic.h"
+
 /* Defines								      */
 #ifndef TRUE
 #define TRUE 1

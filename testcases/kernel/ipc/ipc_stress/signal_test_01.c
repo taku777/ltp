@@ -82,6 +82,8 @@ char stackarray[STACKSIZE];
 
 #include "signals.h"
 
+#include "bionic.h"
+
 #ifdef _LINUX_
 stack_t stack = {
 ss_sp:	stackarray + STACKSIZE,	// stack pointer

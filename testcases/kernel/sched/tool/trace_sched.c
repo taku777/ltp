@@ -56,6 +56,8 @@
 #include <unistd.h>
 #include <string.h>
 
+#include "bionic.h"
+
 void noprintf(char *string, ...)
 {
 }

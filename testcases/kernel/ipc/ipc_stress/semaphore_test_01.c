@@ -74,6 +74,8 @@
 
 #include "lapi/semun.h"
 
+#include "bionic.h"
+
 /* Defines
  *
  * NUM_SEMAPHORES: number of semaphores to create

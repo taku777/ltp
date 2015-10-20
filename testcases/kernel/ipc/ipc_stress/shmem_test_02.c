@@ -78,6 +78,8 @@
 #include <sys/signal.h>
 #include <sys/wait.h>
 
+#include "bionic.h"
+
 /* Defines
  *
  * USAGE: usage statement

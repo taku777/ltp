@@ -59,6 +59,8 @@
 #include <errno.h>
 #include <sys/shm.h>
 
+#include "bionic.h"
+
 /* Defines
  *
  * MAX_SHMEM_SIZE: maximum shared memory segment size of 256MB

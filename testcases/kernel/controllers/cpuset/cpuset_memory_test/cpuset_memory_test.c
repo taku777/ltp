@@ -37,6 +37,8 @@
 #include <syscall.h>
 #include <pthread.h>
 
+#include "bionic.h"
+
 char *TCID = "cpuset_memory_test";
 int TST_TOTAL = 1;
 

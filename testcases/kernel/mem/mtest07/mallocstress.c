@@ -73,6 +73,8 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
+#include "bionic.h"
+
 #define MAXL    100		/* default number of loops to do malloc and free      */
 #define MAXT     60		/* default number of threads to create.               */
 

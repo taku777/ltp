@@ -66,6 +66,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "bionic.h"
+
 /*
  * Defines
  *

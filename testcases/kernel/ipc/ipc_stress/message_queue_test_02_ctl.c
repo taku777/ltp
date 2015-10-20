@@ -65,6 +65,8 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 
+#include "bionic.h"
+
 /*
  * Defines
  *

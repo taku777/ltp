@@ -52,6 +52,8 @@
 #include "tst_res_flags.h"
 #include "tst_timer.h"
 
+#include "bionic.h"
+
 /* virt types for tst_is_virt() */
 #define VIRT_XEN	1	/* xen dom0/domU */
 #define VIRT_KVM	2	/* only default virtual CPU */

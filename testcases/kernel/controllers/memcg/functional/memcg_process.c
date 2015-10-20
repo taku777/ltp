@@ -35,6 +35,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#include "bionic.h"
+
 int fd;
 
 int flag_exit;

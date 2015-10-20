@@ -47,6 +47,8 @@
 #include <sys/wait.h>
 #include "lapi/semun.h"
 
+#include "bionic.h"
+
 /* indexes into environment variable array */
 #define ADBG 0
 #define BNDX 1

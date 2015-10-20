@@ -81,6 +81,9 @@
 #include <sys/ipc.h>
 
 #include <sys/stat.h>
+
+#include "bionic.h"
+
 off_t offsets[] = {
 	0x30000000,
 	0x30200000,

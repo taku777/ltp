@@ -67,6 +67,8 @@
 #include <sys/msg.h>
 #include <sys/types.h>
 
+#include "bionic.h"
+
 /*
  * Defines
  *

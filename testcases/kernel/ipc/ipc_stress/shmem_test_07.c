@@ -142,6 +142,9 @@
 #include <stdlib.h>
 
 #include <sys/stat.h>
+
+#include "bionic.h"
+
 /* Defines
  *
  * DEFAULT_SHMEM_SIZE: default shared memory size, unless specified with

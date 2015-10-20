@@ -57,6 +57,8 @@
 #include <fcntl.h>		/* required by open()                                 */
 #include <stdint.h>		/* required by uintptr_t                              */
 
+#include "bionic.h"
+
 void noprintf(char *string, ...)
 {
 }

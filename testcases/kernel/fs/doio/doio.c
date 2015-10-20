@@ -88,6 +88,8 @@
 #include "string_to_tokens.h"
 #include "pattern.h"
 
+#include "bionic.h"
+
 #define	NMEMALLOC	32
 #define	MEM_DATA	1	/* data space                           */
 #define	MEM_SHMEM	2	/* System V shared memory               */

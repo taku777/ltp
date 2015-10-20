@@ -43,6 +43,8 @@
 #include <sys/sem.h>
 #include "lapi/semun.h"
 
+#include "bionic.h"
+
 int verbose = 0;
 int loops = 100;
 int errors = 0;

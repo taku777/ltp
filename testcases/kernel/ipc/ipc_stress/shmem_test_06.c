@@ -80,6 +80,9 @@
 #include <sys/ipc.h>
 
 #include <sys/stat.h>
+
+#include "bionic.h"
+
 int offsets_cnt = 11;
 /* Defines
  *
