@@ -115,6 +115,17 @@ void error(const char *, int);	/* error message function */
 /* Define an array for verifying received signals */
 int valid_sig[SIGMAX + 1];
 
+#ifdef BIONIC
+int sigpause (int sig)
+{
+	sigset_t set;
+	sigprocmask (SIG_SETMASK, 0, &set);
+	if (sigdelset (&set, sig) < 0)
+		return -1;
+	return sigsuspend (&set);
+};
+#endif
+
 /*---------------------------------------------------------------------+
 |                               main ()                                |
 | ==================================================================== |
