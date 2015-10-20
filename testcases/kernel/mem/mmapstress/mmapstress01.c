@@ -32,6 +32,9 @@
 #include <errno.h>
 #include <sys/types.h>
 #include <limits.h>
+#ifdef BIONIC
+#include "signal.inc"
+#endif
 /*****  LTP Port        *****/
 #include "test.h"
 #define FAILED 0

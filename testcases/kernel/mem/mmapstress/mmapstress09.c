@@ -27,6 +27,9 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <errno.h>
+#ifdef BIONIC
+#include "signal.inc"
+#endif
 /*****  LTP Port        *****/
 #include "test.h"
 #define FAILED 0
