@@ -45,7 +45,9 @@
 #include "test.h"
 #include "safe_macros.h"
 
+#ifndef BIONIC
 static int PAGESIZE;
+#endif
 static rlim_t STACK_LIMIT = 10485760;
 
 static void cleanup(void);
@@ -161,7 +163,9 @@ static void setup(void)
 	char *buf;
 	int fd;
 
+#ifndef BIONIC
 	PAGESIZE = getpagesize();
+#endif
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
 
