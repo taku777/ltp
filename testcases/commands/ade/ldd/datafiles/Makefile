@@ -26,11 +26,19 @@ LDD_SO_FILES		:= $(patsubst $(abs_srcdir)/%.c,%.obj.so,$(LDD_C_FILES))
 MAKE_TARGETS		:= lddfile.out
 CLEAN_TARGETS		+= *.obj $(LDD_SO_FILES)
 
+ifneq ($(BIONIC),1)
 %.obj.so: %.o
 	$(CC) $(CFLAGS) -shared -o $@ $^
 
 lddfile.out: main.o $(LDD_SO_FILES)
 	$(CC) $(CFLAGS) -O -o $@ $?
+else
+%.obj.so: %.o
+	$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -shared -o $@ $^
+
+lddfile.out: main.o $(LDD_SO_FILES)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -O -o $@ $?
+endif
 
 INSTALL_DIR		:= testcases/data/ldd01
 
