@@ -134,7 +134,7 @@ int main(int argc, char **argv)
 		printf("cuid	%d\n", buf.msg_perm.cuid);
 		printf("cgid	%d\n", buf.msg_perm.cgid);
 		printf("mode	%d\n", buf.msg_perm.mode);
-#ifdef _LINUX_
+#if defined(_LINUX_) && !defined(BIONIC)
 		printf("seq	%ld\n", (long int)buf.msg_perm.__seq);
 		printf("key	0x%x\n", buf.msg_perm.__key);
 #else
