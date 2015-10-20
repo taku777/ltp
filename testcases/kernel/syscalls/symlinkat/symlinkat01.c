@@ -262,7 +262,12 @@ static void setup(void)
 
 	/* gratuitous memory leak here */
 	tmp = strdup(dpathname);
+#ifndef BIONIC
 	snprintf(dpathname, sizeof(dpathname), tmp, get_current_dir_name());
+#else
+	char buf[PATH_MAX];
+	snprintf(dpathname, sizeof(dpathname), tmp, getcwd(buf, PATH_MAX));
+#endif
 
 	TEST_PAUSE;
 }

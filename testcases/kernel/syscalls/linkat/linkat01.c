@@ -303,7 +303,12 @@ void setup(void)
 
 	tst_tmpdir();
 
+#ifndef BIONIC
 	cwd = get_current_dir_name();
+#else
+	char buf[PATH_MAX];
+	cwd = getcwd(buf, PATH_MAX);
+#endif
 	if (cwd == NULL)
 		tst_brkm(TFAIL | TERRNO, cleanup,
 			 "Failed to get current working directory");
