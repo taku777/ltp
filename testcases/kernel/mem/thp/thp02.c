@@ -110,7 +110,7 @@ static void do_mremap(void)
 		new_addr = p3 + ps * (i & 1);
 		tst_resm(TINFO, "mremap %p to %p", old_addr, new_addr);
 
-		p4 = mremap(old_addr, size - ps, size - ps,
+		p4 = syscall(__NR_mremap, old_addr, size - ps, size - ps,
 			    MREMAP_FIXED | MREMAP_MAYMOVE, new_addr);
 		if (p4 == MAP_FAILED)
 			tst_brkm(TBROK | TERRNO, cleanup, "mremap");

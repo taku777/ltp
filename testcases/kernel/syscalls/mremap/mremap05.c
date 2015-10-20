@@ -137,7 +137,7 @@ static void *get_test_area(int size, int free_area)
 
 static void test_mremap(struct test_case_t *t)
 {
-	t->ret = mremap(t->old_address, t->old_size, t->new_size, t->flags,
+	t->ret = syscall(__NR_mremap, t->old_address, t->old_size, t->new_size, t->flags,
 			t->new_address);
 
 	if (t->ret == t->exp_ret) {
