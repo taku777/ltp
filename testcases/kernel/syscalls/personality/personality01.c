@@ -60,7 +60,9 @@
 #include <sys/personality.h>
 #undef personality
 
+#ifndef BIONIC
 extern int personality(unsigned long);
+#endif
 
 void cleanup(void);
 void setup(void);
