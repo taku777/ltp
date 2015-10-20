@@ -44,6 +44,10 @@
 
 #define TEST_BLOCK_SIZE 128
 
+#ifndef IOV_MAX
+#define IOV_MAX 1024
+#endif
+
 static char buffer[TEST_BLOCK_SIZE];
 static int notvalidfd = -1;
 static int filefd;
