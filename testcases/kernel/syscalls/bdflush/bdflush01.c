@@ -81,7 +81,9 @@
 #include <unistd.h>
 #include <errno.h>
 #include <sys/stat.h>
+#ifndef BIONIC
 #include <sys/kdaemon.h>
+#endif
 
 #include "test.h"
 #include "linux_syscall_numbers.h"
