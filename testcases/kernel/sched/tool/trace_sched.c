@@ -52,7 +52,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#ifndef BIONIC
 #include <sys/timeb.h>
+#endif
 #include <unistd.h>
 #include <string.h>
 
@@ -424,7 +426,11 @@ int main(int argc,		/* number of input parameters.                        */
 			if (status == (thread_sched_t *) - 1) {
 				fprintf(stderr,
 					"thread [%d] - process exited with errors %d\n",
+#ifndef BIONIC
 					thrd_ndx, WEXITSTATUS(status));
+#else
+					thrd_ndx, WEXITSTATUS(-1));
+#endif
 				exit(-1);
 			} else {
 				exp_prio[thrd_ndx] = status->exp_prio;

@@ -35,7 +35,9 @@
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
+#ifndef BIONIC
 #include <sys/timeb.h>
+#endif
 #include <pwd.h>
 #include "ipcshm.h"
 

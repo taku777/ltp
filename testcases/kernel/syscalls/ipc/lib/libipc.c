@@ -39,7 +39,9 @@
 #include "ipcsem.h"
 
 #include <pwd.h>
+#ifndef BIONIC
 #include <sys/timeb.h>
+#endif
 #include <sys/ipc.h>
 #include <sys/shm.h>
 
