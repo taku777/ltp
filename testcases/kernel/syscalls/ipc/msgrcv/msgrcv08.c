@@ -48,10 +48,12 @@ const int TST_TOTAL = 1;
 
 #if __WORDSIZE == 32
 
+#ifndef BIONIC
 struct msgbuf {
 	long mtype;     /* message type, must be > 0 */
 	char mtext[16]; /* message data */
 };
+#endif
 
 static void msr(int msqid)
 {
