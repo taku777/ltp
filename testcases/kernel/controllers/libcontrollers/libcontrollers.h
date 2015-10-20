@@ -61,6 +61,9 @@ unsigned int total_shares;
 
 unsigned int *shares_pointer;//??
 
+#ifndef LINE_MAX
+#define LINE_MAX _POSIX2_LINE_MAX
+#endif
 char target[LINE_MAX];
 
 struct dirent 	*dir_pointer;
