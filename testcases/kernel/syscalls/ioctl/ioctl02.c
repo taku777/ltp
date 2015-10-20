@@ -65,7 +65,11 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/ioctl.h>
+#ifndef BIONIC
 #include <sys/termios.h>
+#else
+#include <sys/ttydefaults.h>
+#endif
 #include "test.h"
 
 #define	CNUL	0
