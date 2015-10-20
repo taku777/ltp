@@ -42,7 +42,9 @@
 #include <ctype.h>
 #include <math.h>
 #include <errno.h>
+#ifndef BIONIC
 #include <values.h>
+#endif
 
 /*****	LTP Port	*****/
 
