@@ -18,10 +18,10 @@
 
 top_srcdir		?= ../../../..
 
+include $(top_srcdir)/include/mk/testcases.mk
+
 ifneq ($(BIONIC), 1)
 poll02: LDLIBS+=-lrt
 endif
-
-include $(top_srcdir)/include/mk/testcases.mk
 
 include $(top_srcdir)/include/mk/generic_leaf_target.mk
