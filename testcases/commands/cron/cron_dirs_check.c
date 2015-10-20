@@ -1,5 +1,7 @@
 #include <sys/types.h>
+#ifndef BIONIC
 #include <sys/dir.h>
+#endif
 #include <sys/param.h>
 #include <sys/stat.h>
 #include <stdio.h>
