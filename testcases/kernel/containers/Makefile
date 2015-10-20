@@ -45,4 +45,7 @@ trunk-clean:: | lib-clean
 lib-clean:: $(LIBDIR)
 	$(MAKE) -C $^ -f "$(abs_srcdir)/$(LIBDIR)/Makefile" clean
 
+ifeq ($(BIONIC),1)
+FILTER_OUT_DIRS += mqns
+endif
 include $(top_srcdir)/include/mk/generic_trunk_target.mk

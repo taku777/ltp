@@ -25,4 +25,8 @@ include $(abs_srcdir)/../utils/newer_64.mk
 
 CPPFLAGS		+= -D_GNU_SOURCE
 
+ifeq ($(BIONIC), 1)
+FILTER_OUT_MAKE_TARGETS += fcntl14 fcntl14_64 fcntl17 fcntl17_64
+endif
+
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

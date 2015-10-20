@@ -27,6 +27,7 @@ ifneq ($(BIONIC),1)
 LDLIBS			:= -lpthread -lrt -lclone $(LDLIBS)
 else
 LDLIBS			+= -lclone -lltp
+FILTER_OUT_MAKE_TARGETS	+= pidns30 pidns31
 endif
 
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

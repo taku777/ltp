@@ -45,5 +45,8 @@ include $(top_srcdir)/include/mk/testcases.mk
 #
 
 FILTER_OUT_MAKE_TARGETS	:= ptrace06 simple_tracer
+ifeq ($(BIONIC), 1)
+FILTER_OUT_MAKE_TARGETS	+= ptrace03 ptrace04
+endif
 
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

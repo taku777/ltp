@@ -25,5 +25,9 @@ LDLIBS                  += -lmsgctl
 
 MAKE_DEPS               := $(LIBMSGCTL)
 
+ifeq ($(BIONIC), 1)
+FILTER_OUT_MAKE_TARGETS += msgctl08 msgctl09 msgctl10 msgctl11
+endif
+
 include $(abs_srcdir)/../Makefile.inc
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

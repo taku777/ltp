@@ -20,4 +20,8 @@ top_srcdir		?= ../../../..
 
 include $(top_srcdir)/include/mk/testcases.mk
 
+ifeq ($(BIONIC), 1)
+FILTER_OUT_MAKE_TARGETS += open12
+endif
+
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

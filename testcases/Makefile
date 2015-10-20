@@ -38,4 +38,8 @@ ifneq ($(WITH_REALTIME_TESTSUITE),yes)
 FILTER_OUT_DIRS		+= realtime
 endif
 
+ifeq ($(BIONIC), 1)
+FILTER_OUT_DIRS		+= network
+endif
+
 include $(top_srcdir)/include/mk/generic_trunk_target.mk

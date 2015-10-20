@@ -19,5 +19,8 @@
 top_srcdir		?= ../../../..
 
 include $(top_srcdir)/include/mk/testcases.mk
+ifeq ($(BIONIC), 1)
+FILTER_OUT_MAKE_TARGETS += getgroups03 getgroups03_16
+endif
 include $(abs_srcdir)/../utils/compat_16.mk
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

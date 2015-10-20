@@ -29,4 +29,11 @@ FILTER_OUT_DIRS	+= capget capset chmod chown clone fork getcontext llseek \
 		   mincore mprotect nftw profil remap_file_pages sbrk
 endif
 
+ifeq ($(BIONIC),1)
+FILTER_OUT_DIRS += cma confstr futex getdomainname gethostid \
+	mq_notify mq_open mq_timedreceive mq_timedsend mq_unlink profil \
+	setdomainname sethostname sighold sigrelse stime ulimit ustat \
+	vhangup
+endif
+
 include $(top_srcdir)/include/mk/generic_trunk_target.mk

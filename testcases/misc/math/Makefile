@@ -24,4 +24,8 @@ top_srcdir		?= ../../..
 
 include $(top_srcdir)/include/mk/env_pre.mk
 
+ifeq ($(BIONIC), 1)
+FILTER_OUT_DIRS += float
+endif
+
 include $(top_srcdir)/include/mk/generic_trunk_target.mk
