@@ -94,6 +94,62 @@
 
 #define GOTHERE printf("got to line %d\n", __LINE__);
 
+#ifdef BIONIC
+#define F_ULOCK 0 /* Unlock a previously locked region.  */
+#define F_LOCK  1 /* Lock a region for exclusive use.  */
+#define F_TLOCK 2 /* Test and lock a region for exclusive use.  */
+#define F_TEST  3 /* Test a region for other processes locks.  */
+
+int lockf (int fd, int cmd, off_t len)
+{
+	struct flock fl;
+
+	memset ((char *) &fl, '\0', sizeof (fl));
+
+	/* lockf is always relative to the current file position.  */
+	fl.l_whence = SEEK_CUR;
+	fl.l_start = 0;
+	fl.l_len = len;
+
+	switch (cmd)
+	{
+	case F_TEST:
+		/* Test the lock: return 0 if FD is unlocked or locked by this process;
+		 * return -1, set errno to EACCES, if another process holds the lock. \
+		 */
+		fl.l_type = F_RDLCK;
+		if (fcntl (fd, F_GETLK, &fl) < 0)
+			return -1;
+		if (fl.l_type == F_UNLCK || fl.l_pid == __getpid ())
+			return 0;
+		__set_errno (EACCES);
+		return -1;
+
+	case F_ULOCK:
+		fl.l_type = F_UNLCK;
+		cmd = F_SETLK;
+		break;
+	case F_LOCK:
+		fl.l_type = F_WRLCK;
+		cmd = F_SETLKW;
+		break;
+	case F_TLOCK:
+		fl.l_type = F_WRLCK;
+		cmd = F_SETLK;
+		break;
+
+	default:
+		__set_errno (EINVAL);
+		return -1;
+	}
+
+	/* lockf() is a cancellation point but so is fcntl() if F_SETLKW is
+	 *      used.  Therefore we don't have to care about cancellation here,
+	 *           the fcntl() function will take care of it.  */
+	return fcntl (fd, cmd, &fl);
+}
+#endif
+
 /*
  * Function prototypes
  *
