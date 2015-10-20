@@ -21,6 +21,10 @@ top_srcdir		?= ../../../..
 include $(top_srcdir)/include/mk/testcases.mk
 include $(abs_srcdir)/../utils/newer_64.mk
 
+ifneq ($(BIONIC), 1)
 %_64: CPPFLAGS += -D_FILE_OFFSET_BITS=64 -DOFF_T=__off64_t
+else
+%_64: CPPFLAGS += -D_FILE_OFFSET_BITS=64 -DOFF_T=off64_t
+endif
 
 include $(top_srcdir)/include/mk/generic_leaf_target.mk
